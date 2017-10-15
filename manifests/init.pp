@@ -571,6 +571,18 @@ class snmp (
         File['var-net-snmp'],
       ],
     }
+  } elsif $::osfamily == 'Gentoo' {
+    service { 'snmptrapd':
+      ensure     => $trap_service_ensure_real,
+      name       => $trap_service_name,
+      enable     => $trap_service_enable_real,
+      hasstatus  => $trap_service_hasstatus,
+      hasrestart => $trap_service_hasrestart,
+      require    => [
+        Package['snmpd'],
+        File['var-net-snmp'],
+      ],
+    }
   }
 
   service { 'snmpd':
