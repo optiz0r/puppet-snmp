@@ -546,6 +546,28 @@ class snmp::params {
       $trap_service_name        = 'netsnmptrapd'
       $snmptrapd_options        = undef
     }
+    'Gentoo': {
+      $package_name             = 'net-snmp'
+      $service_config_dir_path  = '/etc/snmp'
+      $service_config_dir_perms = '0755'
+      $service_config_dir_owner = 'root'
+      $service_config_dir_group = 'root'
+      $service_config           = '/etc/snmp/snmpd.conf'
+      $service_config_perms     = '0755'
+      $service_name             = 'snmpd'
+      $snmpd_options            = undef
+      $var_net_snmp             = '/var/lib/net-snmp'
+      $varnetsnmp_perms         = '0600'
+      $varnetsnmp_owner         = 'root'
+      $varnetsnmp_group         = 'root'
+
+      $client_package_name      = 'net-snmp'
+      $client_config            = '/etc/snmp/snmp.conf'
+
+      $trap_service_config      = '/etc/snmp/snmptrapd.conf'
+      $trap_service_name        = 'snmptrapd'
+      $snmptrapd_options        = undef
+    }
     default: {
       fail("Module ${::module} is not supported on ${::operatingsystem}")
     }
