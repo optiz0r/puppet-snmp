@@ -555,6 +555,8 @@ class snmp::params {
       $service_config           = '/etc/snmp/snmpd.conf'
       $service_config_perms     = '0755'
       $service_name             = 'snmpd'
+      $sysconfig                = '/etc/conf.d/snmpd'
+      $trap_sysconfig           = '/etc/conf.d/snmptrapd'
       $snmpd_options            = undef
       $var_net_snmp             = '/var/lib/net-snmp'
       $varnetsnmp_perms         = '0600'
